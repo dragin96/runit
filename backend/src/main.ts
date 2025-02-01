@@ -41,7 +41,9 @@ async function bootstrap() {
     .addTag('common')
     .build();
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('api', app, document);
+  SwaggerModule.setup('api', app, document, {
+    jsonDocumentUrl: 'swagger/json',
+  });
 
   useContainer(app.select(AppModule), { fallbackOnErrors: true });
   await app.listen(process.env.PORT || 3000);
