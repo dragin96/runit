@@ -40,8 +40,7 @@ async function bootstrap() {
     .addTag('auth')
     .addTag('common')
     .build();
-  const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('api', app, document);
+  SwaggerModule.createDocument(app, config);
 
   useContainer(app.select(AppModule), { fallbackOnErrors: true });
   await app.listen(process.env.PORT || 3000);
